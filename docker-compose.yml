@@ -6,7 +6,7 @@ services:
     ports:
       - "27017:27017"
     volumes:
-      - mongo-data:/data/db
+      - mongodb-data:/data/db/
 
   app:
     build: .
@@ -20,4 +20,4 @@ services:
       - MONGO_URI=mongodb://mongo:27017/mydatabase
 
 volumes:
-  mongo-data:
+  mongodb-data:
