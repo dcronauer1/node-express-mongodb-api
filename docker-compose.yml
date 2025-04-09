@@ -6,10 +6,10 @@ services:
     ports:
       - "27017:27017"
     volumes:
-      - mongodb-data:/data/db/
+      - mongodb-data:/data/db
 
   app:
-    build: .
+    image: dcronauer1/node-express-mongodb-api:latest
     container_name: node_app
     restart: always
     ports:
