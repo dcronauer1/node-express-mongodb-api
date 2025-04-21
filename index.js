@@ -5,13 +5,13 @@ const swaggerJsdoc = require('swagger-jsdoc');
 const swaggerUi = require('swagger-ui-express');
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT;
 
 // Middleware
 app.use(bodyParser.json());
 
 // MongoDB Connection
-const MONGO_URI = process.env.MONGO_URI || 'mongodb://mongo:27017/mydatabase';
+const MONGO_URI = process.env.MONGO_URI;
 mongoose.connect(MONGO_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true
@@ -31,7 +31,7 @@ const swaggerOptions = {
             version: "1.0.0",
             description: "A simple API for managing items",
         },
-        servers: [{ url: "http://localhost:3000" }],
+        servers: [{ url: 'http://localhost:${PORT}' }],
     },
     apis: ["./routes/items.js"],
 };
